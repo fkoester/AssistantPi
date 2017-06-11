@@ -36,6 +36,7 @@ sudo git clone https://github.com/xtools-at/assistant-sdk-python.git
 cd /opt/AlexaPi/src/assistant-sdk-python
 /opt/AlexaPi/env/bin/python -m pip install --upgrade -e ".[samples]"
 /opt/AlexaPi/env/bin/pip install tenacity
+/opt/AlexaPi/env/bin/python -m pip install -I urllib3==1.21.1
 
 echo "## Copying default sound config from /opt/AlexaPi/src/assistant.asound.conf to /var/lib/AlexaPi and /home/pi"
 echo "See here for more information: https://developers.google.com/assistant/sdk/prototype/getting-started-pi-python/configure-audio"
