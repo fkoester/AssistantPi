@@ -344,7 +344,7 @@ def assistant_handler(voice_command):
     logger.debug('Pocketsphinx triggered with hotword: **' + voice_command + '**')
     # compare to phrase_assistant from config
     voice_command_assistant = config['triggers']['pocketsphinx']['phrase_assistant']
-    if voice_command in voice_command_assistant:
+    if voice_command in voice_command_assistant: # works for both lists and strings
         global p
         if p is not None:
             # SDK is ready, start recording

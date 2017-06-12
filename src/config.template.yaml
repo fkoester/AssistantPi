@@ -64,7 +64,7 @@ alexa:
 # See https://github.com/alexa-pi/AlexaPi/wiki/Triggers for the description of these options
 triggers:
   platform:
-    enabled: false
+    enabled: true
     voice_confirm: false
 
     # one of: oneshot-vad, continuous, continuous-vad
@@ -74,10 +74,10 @@ triggers:
     long_press:
       # system command to run after pressing the button for _duration_ number of seconds
       # empty to disable
-      command: ""
+      command: "" # deprecated, long-press launches Assistant now
 
       # duration in seconds
-      duration: 10
+      duration: 2
 
       # CURRENTLY DISABLED
       # optional audio file to play before executing the command
@@ -97,7 +97,7 @@ triggers:
     ## all howtwords here will trigger Assistant, everything else in your ./keyphrase.lst will trigger Alexa
     ## phrase_assistant = ["ok google", "hey google"]
     phrase_assistant: "google"
-    threshold: 1e-10 # unused, change in ./keyphrase.list
+    threshold: 1e-10 # deprecated, change in ./keyphrase.list
 
     language: "en-us"
     dictionary: "cmudict-en-us.dict"

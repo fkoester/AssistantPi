@@ -29,13 +29,15 @@ class PlatformTrigger(BaseTrigger):
 
 		self._enabled = False
 
-		self.long_press_setup = False
+		self.long_press_setup = True ### always true
+		"""
 		if (self.event_type in triggers.types_continuous
 			and 'long_press' in self._tconfig
 			and 'command' in self._tconfig['long_press']
 			and self._tconfig['long_press']['command']
 			and 'duration' in self._tconfig['long_press']):
 			self.long_press_setup = True
+		"""
 
 	def setup(self):
 		pass
@@ -71,7 +73,17 @@ class PlatformTrigger(BaseTrigger):
 
 				logger.info("-- " + str(self._tconfig['long_press']['duration']) + " second button press detected. Running specified command.")
 
-				os.system(self._tconfig['long_press']['command'])
+				# os.system(self._tconfig['long_press']['command'])
+				### Run Assistant ###
+				if self._enabled:
+					assistant_phrase = self._config['triggers']['pocketsphinx']['phrase_assistant']
+					if assistant_phrase is not None:
+						if isinstance(assistant_phrase, list):
+							assistant_phrase = assistant_phrase[0]
+						self._trigger_callback(self, assistant_phrase)
+					else
+						logger.info("Error: Phrase Assistant was None")
+				###
 				break
 
 			time.sleep(.1)
