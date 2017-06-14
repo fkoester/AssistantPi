@@ -48,9 +48,10 @@ class PlatformTrigger(BaseTrigger):
 	def platform_callback(self, platform_continuous_callback=None):
 		if self._enabled:
 			self._platform_continuous_callback = platform_continuous_callback
-			self._trigger_callback(self, "")
+			# self._trigger_callback(self, "")
 
-			if self._platform_continuous_callback and self.long_press_setup:
+			# if self._platform_continuous_callback and self.long_press_setup:
+			if self.long_press_setup:
 				long_press_thread = threading.Thread(target=self.long_press)
 				long_press_thread.daemon = True
 				long_press_thread.start()
@@ -81,12 +82,16 @@ class PlatformTrigger(BaseTrigger):
 						if isinstance(assistant_phrase, list):
 							assistant_phrase = assistant_phrase[0]
 						self._trigger_callback(self, assistant_phrase)
-					else
+					else:
 						logger.info("Error: Phrase Assistant was None")
 				###
 				break
 
 			time.sleep(.1)
+		###
+		if (time.time() - start_time < self._tconfig['long_press']['duration']):
+			self._trigger_callback(self, "")
+		###
 
 	def enable(self):
 		self._enabled = True

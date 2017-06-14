@@ -68,7 +68,7 @@ triggers:
     voice_confirm: false
 
     # one of: oneshot-vad, continuous, continuous-vad
-    event_type: "oneshot-vad"
+    event_type: "continuous-vad"
 
     # only for "continuous" event_types
     long_press:
@@ -77,7 +77,7 @@ triggers:
       command: "" # deprecated, long-press launches Assistant now
 
       # duration in seconds
-      duration: 2
+      duration: 1
 
       # CURRENTLY DISABLED
       # optional audio file to play before executing the command
