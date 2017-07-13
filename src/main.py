@@ -397,7 +397,7 @@ def start_assistant():
             else:
                 flush_size = ""
         except:
-            logger.debug("Old configuration file without Assistant audio settings detected. To be able to adjust Google Adio settings, run setup again and create a new configuration.")
+            logger.debug("Old configuration file without Assistant audio settings detected. To be able to adjust Google Audio settings, run setup again and create a new configuration.")
             logger.debug("see also https://developers.google.com/assistant/sdk/prototype/getting-started-pi-python/troubleshooting")
         
         # Start Assistant SDK
