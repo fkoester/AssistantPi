@@ -360,10 +360,13 @@ def assistant_handler(voice_command):
             logger.info('Starting Assistant conversation')
             try:
                 # Tell Assistant to start recording
+                sound = pexpect.spawn('cvlc --play-and-exit /opt/AlexaPi/src/resources/okgoogle.mp3')
                 p.sendline('assistant_record')
+                '''
                 p.expect('Recording audio .*')
                 # If ready to record, play sound
                 sound = pexpect.spawn('cvlc /opt/AlexaPi/src/resources/okgoogle.mp3')
+                '''
                 # Wait for end of conversation
                 p.expect('Assistant conversation finished', timeout=180)
                 p.sendline('assistant_pause')
