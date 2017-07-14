@@ -102,6 +102,16 @@ triggers:
     language: "en-us"
     dictionary: "cmudict-en-us.dict"
 
+  # Experimental replacement for the Pushbutton
+  ultrasonic:
+    enabled: true
+    voice_confirm: true
+    gpio_pin_echo: 14
+    gpio_pin_trigger: 15
+    distance_treshold_alexa: 7.1 #cm
+    distance_treshold_assistant: 1.5 #cm
+
+
 # Commands to run before and after an interaction begins. Leave empty to disable.
 event_commands:
 
