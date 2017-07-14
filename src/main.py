@@ -368,7 +368,7 @@ def assistant_handler(voice_command):
                 sound = pexpect.spawn('cvlc /opt/AlexaPi/src/resources/okgoogle.mp3')
                 '''
                 # Wait for end of conversation
-                p.expect('Assistant conversation finished', timeout=180)
+                p.expect('Assistant conversation finished', timeout=240)
                 p.sendline('assistant_pause')
                 sound.close(force=True)
             except:
