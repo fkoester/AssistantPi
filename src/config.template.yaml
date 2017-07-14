@@ -108,8 +108,10 @@ triggers:
     voice_confirm: true
     gpio_pin_echo: 14
     gpio_pin_trigger: 15
+    gpio_pin_lights: 3
     distance_treshold_alexa: 7.1 #cm
     distance_treshold_assistant: 1.5 #cm
+    lights_treshold: 165 # ms
 
 
 # Commands to run before and after an interaction begins. Leave empty to disable.

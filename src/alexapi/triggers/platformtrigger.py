@@ -98,3 +98,6 @@ class PlatformTrigger(BaseTrigger):
 
 	def disable(self):
 		self._enabled = False
+
+	def set_player(self, player=None):
+		pass

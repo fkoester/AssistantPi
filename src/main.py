@@ -620,7 +620,7 @@ def trigger_process(trigger, voice_command):
         force_record = (trigger.continuous_callback, trigger.event_type in triggers.types_vad)
 
     ### Assistant Override
-    if not assistant_handler(voice_command):
+    if not assistant_handler(voice_command): # this in particular
         if trigger.voice_confirm:
             player.play_speech(resources_path + 'alexayes.mp3')
         audio_stream = capture.silence_listener(force_record=force_record)
@@ -628,6 +628,9 @@ def trigger_process(trigger, voice_command):
     ###
 
     triggers.enable()
+    ###
+    triggers.set_player(player)
+    ###
 
     if event_commands['post_interaction']:
         subprocess.Popen(event_commands['post_interaction'], shell=True, stdout=subprocess.PIPE)

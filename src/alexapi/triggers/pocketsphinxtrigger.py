@@ -106,3 +106,6 @@ class PocketsphinxTrigger(BaseTrigger):
 	def disable(self):
 		self._enabled_lock.clear()
 		self._disabled_sync_lock.wait()
+
+	def set_player(self, player=None):
+		pass

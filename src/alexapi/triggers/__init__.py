@@ -34,6 +34,10 @@ def disable(type_filter=None):
 		if (not type_filter) or (trigger.type == type_filter):
 			trigger.disable()
 
+def set_player(player=None):
+	triggers['ultrasonic'].set_player(player)
+
+
 
 class TYPES(object):
 	OTHER = 0

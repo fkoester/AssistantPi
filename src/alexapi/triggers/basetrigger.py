@@ -37,3 +37,7 @@ class BaseTrigger:
 	@abstractmethod
 	def disable(self):
 		pass
+
+	@abstractmethod
+	def set_player(self, player=None):
+		pass
