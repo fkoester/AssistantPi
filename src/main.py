@@ -123,10 +123,6 @@ class Player(object):
     playlist_last_item = None
     progressReportRequired = []
 
-    ###
-    # last_playlist = None
-    ###
-
     def __init__(self, config, platform, pHandler): # pylint: disable=redefined-outer-name
         self.config = config
         self.platform = platform
@@ -134,9 +130,6 @@ class Player(object):
         self.tunein_parser = tunein.TuneIn(5000)
 
     def play_playlist(self, payload):
-        ###
-        # self.last_playlist = payload
-        ###
         self.navigation_token = payload['navigationToken']
         self.playlist_last_item = payload['audioItem']['streams'][-1]['streamId']
 
@@ -562,15 +555,6 @@ def process_response(response):
                         player.set_volume(volume)
 
                         logger.debug("new volume = %s", volume)
-
-                        '''
-                        This causes a deadlock on triggers
-                        ### Resume playing the last station after setting volume
-                        if player.last_playlist is not None:
-                            player.play_playlist(player.last_playlist)
-                        ###
-                        '''
-
 
         # Additional Audio Iten
         elif 'audioItem' in j['messageBody']:

@@ -26,6 +26,12 @@ fi
 
 
 # Will enter here if Directory exists
+
+# Sync system time to prevent problems while installing pip
+sudo systemctl stop ntp
+sudo ntpd -gq
+sudo systemctl start ntp
+# Install pip
 /opt/AlexaPi/env/bin/pip install pip setuptools --upgrade
 
 # Install forked Assistant SDK
